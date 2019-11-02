@@ -75,5 +75,5 @@ if guess["transcription"]:
         print(curr_time)
 if not guess["success"]:
     print("success")
-# print("Nie zrozumiałem. Co powiedziałeś/aś?\n")
+print("Nie zrozumiałem. Co powiedziałeś/aś?\n")
 
