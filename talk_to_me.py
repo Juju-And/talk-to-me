@@ -66,14 +66,16 @@ print(instructions)
 time.sleep(3)
 print("Powiedz coś!")
 
-guess = recognize_speech_from_mic(recognizer, microphone)
-if guess["transcription"]:
-    if guess["transcription"] == "cześć":
+first_speech = recognize_speech_from_mic(recognizer, microphone)
+if first_speech["transcription"]:
+    if first_speech["transcription"] == "cześć":
         print("Siemanko!")
-    if guess["transcription"] == "która godzina":
-        curr_time = strftime("%H:%M:%S", gmtime())
-        print(curr_time)
-if not guess["success"]:
-    print("success")
-print("Nie zrozumiałem. Co powiedziałeś/aś?\n")
 
+if not first_speech["success"]:
+    print("success")
+# print("Nie zrozumiałem. Co powiedziałeś/aś?\n")
+
+second_speech = recognize_speech_from_mic(recognizer, microphone)
+if second_speech["transcription"] == "która godzina":
+    curr_time = strftime("%H:%M:%S", gmtime())
+    print(curr_time)
